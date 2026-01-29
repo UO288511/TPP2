@@ -22,6 +22,9 @@ public class Main {
         List<Integer> nums1 = List.of(3, 1, 4, 1, 5, 9);
         System.out.println("Exercise 1:");
         // TODO: use forEach with a lambda to print each number in nums1
+       
+        nums1.forEach(x -> System.out.print(x));
+        System.out.println();
         System.out.println();
 
 
@@ -32,7 +35,9 @@ public class Main {
         List<String> words2 = new ArrayList<>(List.of("java", "lambda", "expression"));
         // TODO: use replaceAll with a lambda to transform each word to UPPERCASE
         System.out.println("Exercise 2:");
+        words2.replaceAll(x-> x.toUpperCase());
         // TODO: print the resulting list
+        System.out.println(words2);
         System.out.println();
 
 
@@ -42,8 +47,10 @@ public class Main {
          * ============================================================ */
         List<Integer> nums3 = new ArrayList<>(List.of(10, 3, 7, 2, 5, 8));
         // TODO: use removeIf with a lambda to remove numbers < 5
+        nums3.removeIf(x -> x < 5);
         System.out.println("Exercise 3:");
         // TODO: print the resulting list
+        System.out.println(nums3);
         System.out.println();
 
 
@@ -54,7 +61,9 @@ public class Main {
         List<Integer> nums4 = new ArrayList<>(List.of(7, 4, 9, 1, 3));
         // TODO: use sort with a lambda comparator to sort nums4 in ascending order
         System.out.println("Exercise 4:");
+        nums4.sort((x,y) -> x-y);
         // TODO: print the resulting list
+        System.out.println(nums4);
         System.out.println();
 
 
@@ -65,7 +74,9 @@ public class Main {
         List<String> words5 = new ArrayList<>(List.of("java", "haskell", "c", "python"));
         // TODO: use sort with a lambda comparator to sort by string length
         System.out.println("Exercise 5:");
+        words5.sort((x,y)-> x.length()-y.length());
         // TODO: print the resulting list
+        System.out.println(words5);
         System.out.println();
 
 
@@ -76,7 +87,9 @@ public class Main {
         List<String> words6 = new ArrayList<>(List.of("sun", "moon", "earth"));
         // TODO: use replaceAll with a lambda to add "!" at the end of each word
         System.out.println("Exercise 6:");
+        words6.replaceAll(x -> x +"!");
         // TODO: print the resulting list
+        System.out.println(words6);
         System.out.println();
 
 
@@ -87,7 +100,9 @@ public class Main {
         List<String> words7 = new ArrayList<>(List.of("melon", "pear", "mango", "kiwi"));
         // TODO: use removeIf with a lambda to remove words starting with 'm' or 'M'
         System.out.println("Exercise 7:");
+        words7.removeIf(x -> x.startsWith("m")||x.startsWith("M"));
         // TODO: print the resulting list
+        System.out.println(words7);
         System.out.println();
 
 
@@ -98,7 +113,9 @@ public class Main {
         List<Integer> nums8 = new ArrayList<>(List.of(2, 9, 1, 6, 4));
         // TODO: use sort with a lambda comparator to sort nums8 in descending order
         System.out.println("Exercise 8:");
+        nums8.sort((x,y)-> y-x);
         // TODO: print the resulting list
+        System.out.println(nums8);
         System.out.println();
 
 
@@ -110,7 +127,9 @@ public class Main {
         // TODO: use sort with a lambda comparator or Comparator.comparing
         //       to sort ignoring case (case-insensitive)
         System.out.println("Exercise 9:");
+        words9.sort((x,y)-> x.toLowerCase().compareTo(y.toLowerCase()));
         // TODO: print the resulting list
+        System.out.println(words9);
         System.out.println();
 
 
@@ -120,6 +139,7 @@ public class Main {
          * ============================================================ */
         List<Double> reals10 = List.of(1.0, 2.5, 3.2, 4.8);
         System.out.println("Exercise 10:");
+        reals10.forEach(x -> System.out.println(x*2));
         // TODO: use forEach with a lambda to print each element multiplied by 2
         System.out.println();
 
@@ -283,6 +303,8 @@ class TaskManagerExample {
             return;
         }
         // TODO: use forEach with a lambda or method reference to print each task
+        tasks.forEach(x->System.out.println(x));
+        System.out.println();
     }
 
     // -----------------------------------------------------------------------
@@ -326,6 +348,7 @@ class TaskManagerExample {
     private static void removeCompleted(List<Task> tasks) {
         // TODO: use removeIf with a lambda to remove tasks that are completed
         //       and show a message indicating whether any was removed.
+    	tasks.removeIf(x-> x.isCompleted());
     }
 
     // -----------------------------------------------------------------------
@@ -333,6 +356,7 @@ class TaskManagerExample {
     // -----------------------------------------------------------------------
     private static void sortByPriorityAsc(List<Task> tasks) {
         // TODO: use sort with a lambda comparator to sort tasks by priority ascending
+    	tasks.sort((x, y) -> x.getPriority()- y.getPriority()); 
     }
 
     // -----------------------------------------------------------------------
@@ -340,6 +364,7 @@ class TaskManagerExample {
     // -----------------------------------------------------------------------
     private static void sortByPriorityDesc(List<Task> tasks) {
         // TODO: use sort with a lambda comparator to sort tasks by priority descending
+    	tasks.sort((x, y) -> y.getPriority()- x.getPriority()); 
     }
 
     // -----------------------------------------------------------------------
@@ -347,6 +372,7 @@ class TaskManagerExample {
     // -----------------------------------------------------------------------
     private static void sortByDescriptionLength(List<Task> tasks) {
         // TODO: use sort with a lambda comparator to sort by description length
+    	tasks.sort((x, y) -> x.getDescription().length()-y.getDescription().length());
     }
 
     // -----------------------------------------------------------------------
@@ -357,7 +383,17 @@ class TaskManagerExample {
         //       - if priority >= 4 and the description does not start with "[URGENT] ",
         //         return a new Task with "[URGENT] " + description.
         //       - otherwise, return the original task.
+    	
+    	tasks.replaceAll(x -> {
+            if (x.getPriority() >= 4 && !x.getDescription().startsWith("[URGENT] ")) {
+                return new Task("[URGENT] " + x.getDescription(), x.getPriority(), x.isCompleted());
+            }
+            return x;
+        });
+    	
     }
+    
+   
 
     // -----------------------------------------------------------------------
     // i) Show only high-priority tasks → forEach + if (lambda)
@@ -367,11 +403,14 @@ class TaskManagerExample {
             System.out.println("There are no tasks.");
             return;
         }
-
         int min = readInt(sc, "Show tasks with priority >= ");
         System.out.println("Tasks with priority >= " + min + ":");
 
         // TODO: use forEach with a lambda:
         //       inside the lambda, use an if to print only tasks with priority >= min
+        
+        tasks.forEach(x -> {
+            if (x.getPriority() >= min) {System.out.println(x); }
+        });
     }
 }
