@@ -104,6 +104,17 @@ public class CompLazyExercices {
 
     private static void exercise1_FunctionSameResult() {
         // TODO: implement this exercise
+    	Function <Integer, Integer> f = x -> x +3;
+    	Function <Integer, Integer> g = x -> 2 * x;
+    	
+    	Function <Integer, Integer> h1 = f.andThen(g);
+    	Function <Integer, Integer> h2 = g.compose(f);
+    	
+    	List <Integer> list1 = List.of(1,2,3,4,5,0);
+    	
+    	for(var i: list1) {
+    		System.out.println("x = " + i +" | h1 = " + h1.apply(i) +" | h2 = " + h2.apply(i));
+        }    	
     }
 
 
@@ -113,6 +124,18 @@ public class CompLazyExercices {
 
     private static void exercise2_FunctionDifferentResult() {
         // TODO: implement this exercise
+    	Function<Integer, Integer> f = x -> x * x;
+        Function<Integer, Integer> g = x -> x + 10;
+
+        Function<Integer, Integer> h1 = f.andThen(g);
+        Function<Integer, Integer> h2 = g.compose(f);
+        Function<Integer, Integer> h3 = g.andThen(f);
+
+        List<Integer> list2 =List.of(1, 2, 3, 4);
+        
+        for(var i: list2) {
+    		System.out.println("x = " + i +" | h1 = " + h1.apply(i) +" | h2 = " + h2.apply(i)  +" | h3 = " + h3.apply(i));
+        } 
     }
 
 
@@ -122,6 +145,36 @@ public class CompLazyExercices {
 
     private static void exercise3_PredicateDeMorgan() {
         // TODO: implement this exercise
+    	Predicate<Integer> p = x -> x > 5;
+        Predicate<Integer> q = x -> x % 2 == 0;
+        
+        Predicate<Integer> pAndQ = p.and(q);
+        
+        Predicate<Integer> notPAndQ = pAndQ.negate();
+        Predicate<Integer> notP_or_notQ = p.negate().or(q.negate());
+        
+        Predicate<Integer> pOrQ = p.or(q);
+        Predicate<Integer> notPOrQ = pOrQ.negate();
+        Predicate<Integer> notP_and_notQ = p.negate().and(q.negate());
+        
+        List<Integer> list3 =List.of( 3, 4, 6, 9, 10);
+        
+        for (Integer x : list3) {
+        	System.out.println("x = " + x);
+
+            System.out.println("p(x): " + p.test(x));
+            System.out.println("q(x): " + q.test(x));
+
+            System.out.println("!(p && q): " + notPAndQ.test(x));
+            System.out.println("!p || !q: " + notP_or_notQ.test(x));
+
+            System.out.println("!(p || q): " + notPOrQ.test(x));
+            System.out.println("!p && !q: " + notP_and_notQ.test(x));
+
+            System.out.println();
+        }
+
+        
     }
 
 
@@ -131,6 +184,15 @@ public class CompLazyExercices {
 
     private static void exercise4_ConsumerOrderEffects() {
         // TODO: implement this exercise
+    	Consumer<String> print = x-> System.out.println(x);
+    	Consumer<String> upper = x-> System.out.println(x.toUpperCase());
+
+    	Consumer<String> printThenUpper = print.andThen(upper);
+    	Consumer<String> upperThemPrint = upper.andThen(print);
+    	
+    	printThenUpper.accept("print then upper");
+    	upperThemPrint.accept("upper then print");
+    	
     }
 
 
@@ -140,6 +202,21 @@ public class CompLazyExercices {
 
     private static void exercise5_ComparatorReversed() {
         // TODO: implement this exercise
+    	List<String> list5 = new ArrayList<>();
+        list5.add("hola");
+        list5.add("xilofono");
+        list5.add("manzana");
+        list5.add("casa");
+        
+        System.out.println("inicial: " + list5);
+        
+        list5.sort(Comparator.naturalOrder());
+        System.out.println("Natural order: " + list5);
+        
+        list5.sort(Comparator.<String>naturalOrder().reversed());
+        System.out.println("Reversed order: " + list5);
+        
+
     }
 
 
@@ -149,6 +226,23 @@ public class CompLazyExercices {
 
     private static void exercise6_ComparatorTwoCriteria() {
         // TODO: implement this exercise
+    	List<Person> people = new ArrayList<>();
+        people.add(new Person("carla", 30));
+        people.add(new Person("laura", 25));
+        people.add(new Person("raquel", 15));
+        
+        Comparator<Person> byAge= Comparator.comparing(Person::getAge);
+        Comparator<Person> byName= Comparator.comparing(Person::getName);
+
+        Comparator<Person> byAgeThenbyName = byAge.thenComparing(byName);
+        
+        System.out.println("people: " + people);
+        people.sort(byAgeThenbyName);
+        System.out.println("people sorted: " + people);
+
+        
+        
+        
     }
 
 
@@ -158,6 +252,22 @@ public class CompLazyExercices {
 
     private static void exercise7_ComparatorNullsLast() {
         // TODO: implement this exercise
+    	List<String> list7 = new ArrayList<>();
+    	list7.add("hola");
+    	list7.add(null);
+    	list7.add("casa");
+    	list7.add("mundo");
+    	list7.add(null);
+    	list7.add("movil");
+        
+        Comparator<String> byLength = Comparator.comparing(String::length);
+
+        Comparator<String> nullsLastComparator = Comparator.nullsLast(byLength);
+
+        System.out.println("list  : " + list7);
+        list7.sort(nullsLastComparator);
+
+        System.out.println("list sorted : " + list7);
     }
 
     
@@ -178,6 +288,13 @@ public class CompLazyExercices {
      */
     private static void exercise1_NoTerminalNoExecution() {
         // TODO: implement this exercise
+    	var list = List.of(1,2,3,4,5,6,7,8,9,10,11);
+    	
+    	var stream = list.stream().peek(x-> System.out.println("Peek 1 Element: " + x))
+    			.filter(x->x>5).peek(x-> System.out.println("Peek 2 Element: " + x))
+    			.filter(x->x<9).peek(x->System.out.println("Peek 3 Element: " + x));
+    	
+    	stream.forEach(System.out::println);
     }
 
 
@@ -191,6 +308,24 @@ public class CompLazyExercices {
      */
     private static void exercise2_ShortCircuitAnyMatch() {
         // TODO: implement this exercise
+    	var list = List.of(1,2,3,4,5,6,7,8,9,10,11);
+		System.out.println("list: " + list );
+    	
+		var countAll = list.stream()
+                .peek(x -> System.out.println("Counting: " + x))
+                .count();
+		System.out.println("countAll: " + countAll );
+		
+		var hasEven = list.stream()
+                .peek(x -> System.out.println("element anyMatch: " + x))
+                .anyMatch(x -> x % 2 == 0);
+		System.out.println(" even number? " + hasEven);
+		
+		var allPositive = list.stream()
+                .peek(x -> System.out.println("allMatch : " + x))
+                .allMatch(x -> x > 0);
+		System.out.println("All positive? " + allPositive);
+		
     }
 
 
@@ -204,6 +339,19 @@ public class CompLazyExercices {
      */
     private static void exercise3_ShortCircuitLimit() {
         // TODO: implement this exercise
+        var words = List.of("ola", "ola", "manual", "Manual", "Manzana", "manzana", "telefono", "Telefono");
+        
+        words.stream()
+        .peek(w -> System.out.println("word: " + w))       
+        .filter(w -> w.length() >= 4)                                
+        .peek(w -> System.out.println("filter length>=4: " + w))
+        .map(String::toLowerCase)                                     
+        .distinct()                                                   
+        .peek(w -> System.out.println("distinct: " + w))
+        .sorted()                                                     
+        .peek(w -> System.out.println("sorted: " + w))
+        .forEach(w -> System.out.println("final word: " + w));       
+
     }
 
 
@@ -218,6 +366,27 @@ public class CompLazyExercices {
      */
     private static void exercise4_SortedBehavior() {
         // TODO: implement this exercise
+        var nums = List.of(1,2,3,4,5,6,7,8,9,10);
+        
+        var anyGreater5 = nums.stream()
+                .peek(n -> System.out.println("check anyMatch: " + n))
+                .anyMatch(n -> n > 5);
+        System.out.println("anyMatch >5? : " + anyGreater5);
+      
+        System.out.println();
+            
+        var allLessThan4 = nums.stream()
+                .peek(n -> System.out.println("check allMatch: " + n))
+                .allMatch(n -> n < 4);
+        System.out.println("allMatch <4 ?: " + allLessThan4);
+        
+        System.out.println();
+        
+        boolean noneNegative = nums.stream()
+                .peek(n -> System.out.println("check noneMatch: " + n))
+                .noneMatch(n ->  n < 0);
+        System.out.println("noneMatch <0?: " + noneNegative);
+
     }
 
 
@@ -231,6 +400,14 @@ public class CompLazyExercices {
      */
     private static void exercise5_NoneMatchExpensivePredicate() {
         // TODO: implement this exercise
+        var nums = List.of(1,2,3,4,5,6,7,8,9,10);
+
+        System.out.println("list: " + nums);
+        
+        nums.stream()
+        .skip(3)  
+        .limit(4) 
+        .forEach(n -> System.out.println("number: " + n));
     }
 
 
@@ -256,6 +433,12 @@ public class CompLazyExercices {
      */
     private static void exercise6_FindFirstLazy() {
         // TODO: implement this exercise
+        var words = List.of("ola", "manual", "manzana", "telefono", "casa");
+
+        var stream  = words.stream()
+                .peek(w -> System.out.println("checking: " + w))
+                .filter(w -> w.length()>5)
+                .findFirst();
     }
 
 
