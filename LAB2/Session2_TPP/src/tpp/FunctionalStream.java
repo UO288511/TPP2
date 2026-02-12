@@ -495,7 +495,7 @@ public class FunctionalStream {
 
         // - Show results.
     	
-    }
+    }	
 
     // ---------------------------------------------------------
     // Option 6: first 5 words with a minimum length
