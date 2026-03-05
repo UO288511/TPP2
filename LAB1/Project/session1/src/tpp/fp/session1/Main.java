@@ -349,7 +349,7 @@ class TaskManagerExample {
         // TODO: use removeIf with a lambda to remove tasks that are completed
         //       and show a message indicating whether any was removed.
     	tasks.removeIf(x-> x.isCompleted());
-    }
+   }
 
     // -----------------------------------------------------------------------
     // e) Sort by ascending priority → sort (lambda)
