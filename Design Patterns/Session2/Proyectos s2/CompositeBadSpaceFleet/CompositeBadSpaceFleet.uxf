@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>170</y>
+      <w>340</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Ship
+--
+_name : String_
+_fuelConsumption : double_
+--
++Ship(name : String, fuelConsumption : double)
++showDetails() : void
++getFuelConsumption() : double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>150</y>
+      <w>230</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Fleet
+--
+_name : String_
+_ships : List&lt;Ship&gt;_
+--
++Fleet(name : String)
++addShip(ship : Ship) : void
++removeShip(ship: Ship) : void
++showDetails() : void
++getFuelConsumption() : double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>400</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Main_NoComposite
+--
++main(args : String[]) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>180</y>
+      <w>220</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>280</y>
+      <w>90</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+&lt;&lt;creates&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>290</y>
+      <w>260</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+&lt;&lt;creates&gt;&gt;</panel_attributes>
+    <additional_attributes>240.0;10.0;240.0;70.0;10.0;70.0;10.0;110.0</additional_attributes>
+  </element>
+</diagram>
