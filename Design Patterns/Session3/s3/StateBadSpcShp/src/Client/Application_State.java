@@ -1,0 +1,33 @@
+package Client;
+
+import Context.Spacecraft;
+
+public class Application_State {
+
+	public static void main(String[] args) {
+        Spacecraft spacecraft = new Spacecraft();
+        System.out.println("=== Demo WITH State pattern ===");
+        System.out.println(spacecraft.status());
+
+        System.out.println("\nAction: advance()");
+        spacecraft.advance();
+        System.out.println(spacecraft.status());
+
+        System.out.println("\nAction: abort()");
+        spacecraft.abort();
+        System.out.println(spacecraft.status());
+
+        System.out.println("\nAction: advance()");
+        spacecraft.advance();
+        System.out.println(spacecraft.status());
+
+        System.out.println("\nAction: advance()");
+        spacecraft.advance();
+        System.out.println(spacecraft.status());
+
+        System.out.println("\nAction: abort()");
+        spacecraft.abort();
+        System.out.println(spacecraft.status());
+
+	}
+}

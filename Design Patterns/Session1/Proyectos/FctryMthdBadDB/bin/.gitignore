@@ -5,3 +5,8 @@
 /dbFactory/
 /dbConnection_productoConcreto/
 /dbFactory_creadorConcreto/
+/ProductoConcreto/
+/CeadorConcreto/
+/Client/
+/Creador/
+/Producto/
