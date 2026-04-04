@@ -1,0 +1,18 @@
+package ComandosConcretos;
+
+import Comando.Command;
+import Receivers.StabilizerSystem;
+
+public class DecreaseStabilization implements Command{
+	private StabilizerSystem stabilizerSystem;
+
+    public DecreaseStabilization(StabilizerSystem stabilizerSystem) {
+        this.stabilizerSystem = stabilizerSystem;
+    }
+
+    @Override
+    public void execute() {
+        stabilizerSystem.decreaseStabilization();
+    }
+
+}
