@@ -1,0 +1,7 @@
+package StateBadSpcShp;
+
+public interface SpaceCraftState {
+	void advance();
+	void abort();
+	String status();
+}

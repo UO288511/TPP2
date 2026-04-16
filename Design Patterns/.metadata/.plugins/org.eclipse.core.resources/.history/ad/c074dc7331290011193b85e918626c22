@@ -1,0 +1,42 @@
+package Client;
+
+public class SpacecraftTelemetry {
+
+    private double x;
+    private double y;
+    private double angle;
+    private double speed;
+    private double rotationSpeed;
+
+    public SpacecraftTelemetry() {
+    }
+
+    public void setState(double x, double y, double angle,
+                         double speed, double rotationSpeed) {
+        this.x = x;
+        this.y = y;
+        this.angle = angle;
+        this.speed = speed;
+        this.rotationSpeed = rotationSpeed;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getAngle() {
+        return angle;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public double getRotationSpeed() {
+        return rotationSpeed;
+    }
+}

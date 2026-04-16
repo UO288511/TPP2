@@ -1,0 +1,23 @@
+package Client;
+
+import java.util.List;
+
+import Invocador.Invoker;
+import Receivers.StabilizerSystem;
+import Receivers.ThrusterSystem;
+
+public class Main_Command {
+	private ThrusterSystem thrusterSystem;
+    private StabilizerSystem stabilizerSystem;
+    private List<Invoker> invocador;
+    
+    public Main_Command() {
+        thrusterSystem = new ThrusterSystem();
+        stabilizerSystem = new StabilizerSystem();
+        actuators = new ArrayList<>();
+    }
+    
+    
+    
+
+}

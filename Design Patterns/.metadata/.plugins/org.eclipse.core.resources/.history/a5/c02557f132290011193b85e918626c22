@@ -1,0 +1,68 @@
+package Publisher;
+
+import java.util.List;
+
+import Subject.Subject;
+import Subscriber.Observer;
+
+public class SpacecraftTelemetry implements Subject {
+
+    private double x;
+    private double y;
+    private double angle;
+    private double speed;
+    private double rotationSpeed;
+    private List<Observer> observers;
+
+
+    public SpacecraftTelemetry() {
+    	
+    }
+
+    public void setState(double x, double y, double angle,
+                         double speed, double rotationSpeed) {
+        this.x = x;
+        this.y = y;
+        this.angle = angle;
+        this.speed = speed;
+        this.rotationSpeed = rotationSpeed;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getAngle() {
+        return angle;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public double getRotationSpeed() {
+        return rotationSpeed;
+    }
+
+	@Override
+	public void registerObserver(Observer o) {
+		observers.add(o);
+		
+	}
+
+	@Override
+	public void removeObserver(Observer o) {
+		observers.remove(o);		
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (Observer o : observers) {
+            o.update();
+        }		
+	}
+}

@@ -1,0 +1,27 @@
+package StateBadSpcShp;
+
+import StateBadSpcShp.SpaceCraftState;
+import StateBadSpcShp.Spacecraft;
+
+public class LandingState implements SpaceCraftState {
+	private Spacecraft spacecraft;
+
+    public LandingState(Spacecraft spacecraft) {
+        this.spacecraft = spacecraft;
+    }
+
+    @Override
+    public void advance() {
+        System.out.println("[LANDING] Already landing. Cannot advance further.");
+    }
+
+    @Override
+    public void abort() {
+        System.out.println("[LANDING] Abort requested during landing: too late to cancel.");
+    }
+
+    @Override
+    public String status() {
+        return "Current phase: LANDING";
+    }
+}

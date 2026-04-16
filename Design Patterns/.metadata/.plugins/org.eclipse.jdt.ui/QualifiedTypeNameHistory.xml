@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="TriviaGame"/>
+    <fullyQualifiedTypeName name="db.MongoDBConnection"/>
+    <fullyQualifiedTypeName name="db.MySQLConnectionFactory"/>
+    <fullyQualifiedTypeName name="db.DBConnection"/>
+    <fullyQualifiedTypeName name="db.ConnectionFactory"/>
+    <fullyQualifiedTypeName name="dbFactory.CassandraConnFactory"/>
+    <fullyQualifiedTypeName name="spaceSubsistem.FuelSystem"/>
+    <fullyQualifiedTypeName name="spaceSubsistem.NavigationSystem"/>
+    <fullyQualifiedTypeName name="spaceSubsistem.EngineSystem"/>
+    <fullyQualifiedTypeName name="spaceFachada.MissionFacade"/>
+    <fullyQualifiedTypeName name="interfaz.LegacyLocator"/>
+    <fullyQualifiedTypeName name="StateBadSpcShp.Spacecraft"/>
+    <fullyQualifiedTypeName name="StateBadSpcShp.SpaceCraftState"/>
+    <fullyQualifiedTypeName name="Invocador.Invoker"/>
+    <fullyQualifiedTypeName name="Subject.Subject"/>
+    <fullyQualifiedTypeName name="Subscriber.Observer"/>
+</qualifiedTypeNameHistroy>

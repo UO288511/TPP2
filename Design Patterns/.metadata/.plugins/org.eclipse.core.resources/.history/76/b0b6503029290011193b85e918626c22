@@ -1,0 +1,89 @@
+package StateBadSpcShp;
+
+public class Spacecraft {
+
+    /*public enum Phase {
+        PRE_LAUNCH,
+        IN_FLIGHT,
+        LANDING
+    }
+
+    private Phase phase;
+
+    public Spacecraft() {
+        this.phase = Phase.PRE_LAUNCH;
+    }
+
+    public Phase getPhase() {
+        return phase;
+    }
+
+    public String status() {
+        return "Current phase: " + phase;
+    }
+
+    // Action 1
+    public void advance() {
+        switch (phase) {
+            case PRE_LAUNCH:
+                System.out.println("[PRE_LAUNCH] Igniting engines...");
+                phase = Phase.IN_FLIGHT;
+                break;
+
+            case IN_FLIGHT:
+                System.out.println("[IN_FLIGHT] Preparing landing procedures...");
+                phase = Phase.LANDING;
+                break;
+
+            case LANDING:
+                System.out.println("[LANDING] Already landing. Cannot advance further.");
+                break;
+        }
+    }
+
+    // Action 2
+    public void abort() {
+        switch (phase) {
+            case PRE_LAUNCH:
+                System.out.println("[PRE_LAUNCH] Mission aborted safely (before launch).");
+                // stays in PRE_LAUNCH
+                break;
+
+            case IN_FLIGHT:
+                System.out.println("[IN_FLIGHT] Emergency abort! Returning to safe pre-launch state.");
+                phase = Phase.PRE_LAUNCH;
+                break;
+
+            case LANDING:
+                System.out.println("[LANDING] Abort requested during landing: too late to cancel.");
+                // stays in LANDING
+                break;
+        }
+    }*/
+	
+	private SpacecraftState state;
+
+    public Spacecraft() {
+        this.state = new PreLaunchState(this);
+    }
+
+    public void changeState(SpacecraftState newState) {
+        this.state = newState;
+    }
+
+    public void advance() {
+        state.advance();
+    }
+
+    public void abort() {
+        state.abort();
+    }
+
+    public String status() {
+        return state.status();
+    }
+	
+	
+	
+}
+

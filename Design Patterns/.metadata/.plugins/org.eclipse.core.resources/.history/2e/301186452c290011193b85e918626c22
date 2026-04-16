@@ -1,0 +1,11 @@
+package CeadorConcreto;
+
+import Client.ConnectionFactory;
+import Client.DBConnection;
+import ProductoConcreto.MySQLConnection;
+
+public class MySQLConnFactory implements ConnectionFactory{ 
+	public DBConnection createConnection() {
+        return new MySQLConnection();
+    }
+}

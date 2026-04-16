@@ -1,0 +1,11 @@
+package CeadorConcreto;
+
+import Client.DBConnection;
+import Creador.ConnectionFactory;
+import ProductoConcreto.MongoDBConnection;
+
+public class MongoDBConnFactory implements ConnectionFactory{
+	public DBConnection createConnection() {
+        return new MongoDBConnection();
+    }
+}

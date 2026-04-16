@@ -1,0 +1,11 @@
+package dbFactory_creadorConcreto;
+
+import ProductoConcreto.MongoDBConnection;
+import db.ConnectionFactory;
+import db.DBConnection;
+
+public class MongoDBConnFactory implements ConnectionFactory{
+	public DBConnection createConnection() {
+        return new MongoDBConnection();
+    }
+}

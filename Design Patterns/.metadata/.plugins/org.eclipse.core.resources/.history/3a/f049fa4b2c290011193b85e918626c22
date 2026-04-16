@@ -1,0 +1,14 @@
+package CeadorConcreto;
+
+import Client.DBConnection;
+import Creador.ConnectionFactory;
+import ProductoConcreto.CassandraConnection;
+
+public class CassandraConnFactory implements ConnectionFactory {
+
+	@Override
+	public DBConnection createConnection() {
+		return new CassandraConnection();
+	}
+
+}

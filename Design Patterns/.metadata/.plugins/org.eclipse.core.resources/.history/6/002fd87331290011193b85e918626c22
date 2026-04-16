@@ -1,0 +1,23 @@
+package Client;
+
+public class CurrentTelemetryDisplay {
+
+    public void update(SpacecraftTelemetry telemetry) {
+        double x = telemetry.getX();
+        double y = telemetry.getY();
+        double angle = telemetry.getAngle();
+        double speed = telemetry.getSpeed();
+        double rotationSpeed = telemetry.getRotationSpeed();
+
+        display(x, y, angle, speed, rotationSpeed);
+    }
+
+    public void display(double x, double y, double angle,
+                        double speed, double rotationSpeed) {
+        System.out.println("Current telemetry:");
+        System.out.println("Position: (" + x + ", " + y + ")");
+        System.out.println("Angle: " + angle);
+        System.out.println("Speed: " + speed);
+        System.out.println("Rotation speed: " + rotationSpeed);
+    }
+}

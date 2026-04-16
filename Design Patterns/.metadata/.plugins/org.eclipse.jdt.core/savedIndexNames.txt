@@ -1,0 +1,11 @@
+INDEX VERSION 1.134+C:\Users\UO288511\Desktop\TPP2\Design Patterns\.metadata\.plugins\org.eclipse.jdt.core
+2902874388.index
+1865797976.index
+3481984072.index
+2913970247.index
+4075796737.index
+4204660461.index
+1407770103.index
+2023944927.index
+2369958114.index
+3306765803.index

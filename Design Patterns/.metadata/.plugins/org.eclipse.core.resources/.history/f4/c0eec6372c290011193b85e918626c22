@@ -1,0 +1,9 @@
+/db/
+/dbConnection/
+/Connection/
+/DbConnection/
+/dbFactory/
+/dbConnection_productoConcreto/
+/dbFactory_creadorConcreto/
+/ProductoConcreto/
+/CeadorConcreto/

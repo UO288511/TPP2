@@ -1,0 +1,5 @@
+package StateBadSpcShp;
+
+public class LandingState extends Spacecraft {
+
+}

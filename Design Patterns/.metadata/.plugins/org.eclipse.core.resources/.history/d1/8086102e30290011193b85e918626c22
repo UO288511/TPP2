@@ -1,0 +1,36 @@
+package Client;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Invocador.Invoker;
+import Receivers.StabilizerSystem;
+import Receivers.ThrusterSystem;
+import Comando.*;
+import ComandosConcretos.*;
+
+public class Main_Command {
+	private ThrusterSystem thrusterSystem;
+    private StabilizerSystem stabilizerSystem;
+
+    public Main_Command() {
+        thrusterSystem = new ThrusterSystem();
+        stabilizerSystem = new StabilizerSystem();
+    }
+
+    public void configureAccelerationNeeded() {
+        System.out.println("=== Acceleration needed ===");
+        thrusterSystem.increaseThrust();
+        stabilizerSystem.increaseStabilization();
+    }
+
+    public void configureStabilityNeeded() {
+        System.out.println("=== Stability needed ===");
+        thrusterSystem.decreaseThrust();
+        stabilizerSystem.increaseStabilization();
+    }
+    
+    
+    
+
+}

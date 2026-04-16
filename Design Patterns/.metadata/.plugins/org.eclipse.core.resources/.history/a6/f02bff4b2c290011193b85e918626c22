@@ -1,0 +1,6 @@
+package Client;
+
+public interface DBConnection {
+    boolean open();
+    boolean close();
+}

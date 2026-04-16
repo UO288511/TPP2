@@ -1,0 +1,24 @@
+package StateBadSpcShp;
+
+public class PreLaunchState implements SpaceCraftState{
+	
+	private Spacecraft spacecraft;
+
+    public PreLaunchState(Spacecraft spacecraft) {
+        this.spacecraft = spacecraft;
+    }
+
+	@Override
+	public void advance() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void abort() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+}

@@ -1,0 +1,8 @@
+package Creador;
+
+import Client.DBConnection;
+
+public interface ConnectionFactory {
+	DBConnection createConnection();
+
+}

@@ -1,0 +1,16 @@
+package ComandosConcretos;
+
+import Receivers.ThrusterSystem;
+
+public class DecreaseThrust implements Command {
+	private ThrusterSystem thrusterSystem;
+
+    public IncreaseThrust(ThrusterSystem thrusterSystem) {
+        this.thrusterSystem = thrusterSystem;
+    }
+
+	@Override
+	public void execute() {
+		thrusterSystem.increaseThrust();
+	}
+}

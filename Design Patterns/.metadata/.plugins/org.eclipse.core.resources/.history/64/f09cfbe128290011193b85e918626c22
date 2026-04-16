@@ -1,0 +1,5 @@
+package StateBadSpcShp;
+
+public interface SpaceCraftState {
+
+}

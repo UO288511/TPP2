@@ -1,0 +1,11 @@
+package dbFactory_creadorConcreto;
+
+import ProductoConcreto.MySQLConnection;
+import db.ConnectionFactory;
+import db.DBConnection;
+
+public class MySQLConnFactory implements ConnectionFactory{ 
+	public DBConnection createConnection() {
+        return new MySQLConnection();
+    }
+}

@@ -1,0 +1,54 @@
+package SuscriptorConcreto;
+
+import Publisher.SpacecraftTelemetry;
+import Subscriber.Observer;
+
+public class NavigationStatisticsDisplay implements Observer{
+
+    private double maxSpeed;
+    private double minSpeed;
+    private double maxRotationSpeed;
+    private double minRotationSpeed;
+    private boolean firstUpdate = true;
+
+    public void update(SpacecraftTelemetry telemetry) {
+        
+    }
+
+    public void display() {
+        System.out.println("Navigation statistics:");
+        System.out.println("Max speed: " + maxSpeed);
+        System.out.println("Min speed: " + minSpeed);
+        System.out.println("Max rotation speed: " + maxRotationSpeed);
+        System.out.println("Min rotation speed: " + minRotationSpeed);
+    }
+
+	@Override
+	public void update() {
+		double speed = telemetry.getSpeed();
+        double rotationSpeed = telemetry.getRotationSpeed();
+
+        if (firstUpdate) {
+            maxSpeed = speed;
+            minSpeed = speed;
+            maxRotationSpeed = rotationSpeed;
+            minRotationSpeed = rotationSpeed;
+            firstUpdate = false;
+        } else {
+            if (speed > maxSpeed) {
+                maxSpeed = speed;
+            }
+            if (speed < minSpeed) {
+                minSpeed = speed;
+            }
+            if (rotationSpeed > maxRotationSpeed) {
+                maxRotationSpeed = rotationSpeed;
+            }
+            if (rotationSpeed < minRotationSpeed) {
+                minRotationSpeed = rotationSpeed;
+            }
+        }
+
+        display();
+	}
+}
