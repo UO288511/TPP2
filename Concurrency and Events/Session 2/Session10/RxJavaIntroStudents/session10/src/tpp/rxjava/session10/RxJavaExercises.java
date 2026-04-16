@@ -268,6 +268,11 @@ public class RxJavaExercises {
 
 	private static void ex12_RefCount() {
 		// TODO
+		System.out.println("----- EXERCISE 12 -----" );
+		
+		
+		System.out.println();
+
 	}
 
 	private static void ex13_Subject() {
