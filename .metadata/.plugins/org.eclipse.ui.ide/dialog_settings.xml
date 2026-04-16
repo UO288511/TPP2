@@ -23,10 +23,12 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\CARLA\Desktop\Uni\5Informática\TPP\Design patterns\Session1"/>
 			<item value="C:\Users\CARLA\Desktop\Uni\5Informática\TPP\Carla_LV_288511_exam"/>
 			<item value="C:\Users\CARLA\Desktop\Uni\5Informática\TPP\Práctica"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\CARLA\Desktop\Uni\5Informática\TPP\Carla_LV_288511_exam\ExamSalesAnalytics"/>
 			<item value=""/>
 		</list>
 		<section name="ExternalProjectImportWizard.dialogBounds">
